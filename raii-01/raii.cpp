@@ -1,11 +1,11 @@
 #include <iostream>
 
-
 //mail : jpenuchot@lri.fr
 
 struct T
 {
-    T(){
+    T()
+    {
         std::cout << this << " : constructed" << '\n';
     }
 
@@ -14,11 +14,13 @@ struct T
         std::cout << this << " : constructed from " << &t << '\n';
     }
 
-    ~T(){
+    ~T()
+    {
         std::cout << this << " : destructed" << '\n';
     }
 
-    T& operator=(T const &t){
+    T &operator=(T const &t)
+    {
         std::cout << this << ": copied from " << &t << '\n';
         return *this;
     }
