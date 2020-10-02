@@ -1,0 +1,22 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "gcc.exe build active file",
+            "command": "C:\\mingw\\mingw64\\bin\\gcc.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-Wall",
+                "-lstdc++",
+                "-static-libstdc++"
+            ],
+            "options": {
+                "cwd": "C:\\mingw\\mingw64\\bin"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
