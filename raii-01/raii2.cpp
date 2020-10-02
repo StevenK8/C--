@@ -21,12 +21,30 @@ struct file
     }
 
     file(file const &) = delete;
-    file &operator =(file &&f)= delete;
+    file &operator=(file const &f) = delete;
 
-    file(file &&f2): f(f2.f) {f2.f = nullptr;}
+    file &operator=(file &&f2)
+    {
+        if (f)
+        {
+            fclose(f);
+        }
 
-    ~file(){
-        fclose(f);
+        f = f2.f;
+
+        f2.f = nullptr;
+
+        return *this;
+    }
+
+    file(file &&f2) : f(f2.f) { f2.f = nullptr; }
+
+    ~file()
+    {
+        if (f)
+        {
+            fclose(f);
+        }
     }
 };
 
